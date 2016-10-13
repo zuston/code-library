@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
+# 延迟加载
 class factoryBase(object):
     def __init__(self):
         pass
