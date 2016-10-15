@@ -105,9 +105,11 @@ def showClusterOfK(k):
         return 1
 
 
-    for i in range(1,k):
+
+    for i in range(2,k):
+        print "当K值为%d"%i
         centroids,data = kmeans(mdataSet,i)
-        acx = fig.add_subplot(2,2,i)
+        acx = fig.add_subplot(2,2,i-1)
         mark = ['or', 'ob', 'og', 'ok', '^r', '+r', 'sr', 'dr', '<r', 'pr']
         if i > len(mark):
             print "Sorry! Your k is too large! please contact Zouxy"
@@ -122,6 +124,45 @@ def showClusterOfK(k):
         # 绘制中心点的图
         for p in range(i):
             acx.plot(centroids[p, 0], centroids[p, 1], mark[p], markersize = 10)
+
+
+        '''
+        求解轮廓系数
+        对于每一个点计算轮廓内的所有点的距离
+        与离他最近的非此轮廓内的点
+        '''
+        scList = []
+        for a in xrange(numSamples):
+            odis = 0
+            count = 1
+            # 标识点
+            markIndex = int(data[a,0])
+            outdistance = [0]*i
+            outCount = [1]*i
+            # 获取标识数组的值,算出每个点距离本簇内的距离
+            for q in xrange(numSamples):
+                if int(data[q,0])==markIndex:
+                    odis += euclDistance(mdataSet[a],mdataSet[q])
+                    count += 1
+                else:
+                    outdistance[int(data[q,0])] += euclDistance(mdataSet[a],mdataSet[q])
+                    outCount[int(data[q,0])] += 1
+
+            mint = 10000
+            for itea in range(i):
+                if itea!=markIndex:
+                    val = outdistance[itea]/outCount[itea]
+                    if mint>val:
+                        mint = val
+
+            avergeC = odis/count
+
+            sc = (mint-avergeC)/max(mint,avergeC)
+            scList.append(sc)
+
+        print "轮廓系数:%f"%(sum(scList)/len(scList))
+        print
+
     plt.show()
 
 def showClusterOf1(k):
@@ -141,7 +182,16 @@ def showClusterOf1(k):
     print "step 3: show the result..."
     showCluster(dataSet, k, centroids, clusterAssment)
 
+# 计算轮廓系数
+def calculateSilhouetteCoefficient():
+    pass
+
+def test():
+    alist = [0]*10
+    print alist
+
+
 
 if __name__ == "__main__":
     # showClusterOf1(4)
-    showClusterOfK(5)
+    showClusterOfK(6)
