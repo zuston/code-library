@@ -35,18 +35,14 @@ int main(int argc, char const *argv[]) {
   scanf("%d",&n);
   while (n!=0) {
     int list[300][300];
-    
-    /* code */
-    for (int i = 1; i <=n; i++) {
-      /* code */
-      for(int j=1;j<=i;j++){
-        scanf("%d",&list[i-1][j-1]);
+    for (int i = 0; i <n; i++) {
+      for(int j=0;j<=i;j++){
+        scanf("%d",&list[i][j]);
       }
     }
-    for(int i=n-1;i<=1;i--){
-      for(int j=0;j<i;j++){
+    for(int i=n-1;i>=1;i--){
+      for(int j=0;j<=i;j++){
         if (list[i][j]<list[i][j+1]) {
-          /* code */
           list[i-1][j] += list[i][j+1];
         }else{
           list[i-1][j] += list[i][j];
