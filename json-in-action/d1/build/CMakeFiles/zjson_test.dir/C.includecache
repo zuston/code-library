@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zuston/dev/code-library/json-in-action/d1/json.h
+
+/Users/zuston/dev/code-library/json-in-action/d1/unit-test.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+json.h
+/Users/zuston/dev/code-library/json-in-action/d1/json.h
+

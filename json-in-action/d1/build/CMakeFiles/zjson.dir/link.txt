@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libzjson.a  CMakeFiles/zjson.dir/json.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libzjson.a
