@@ -1,4 +1,0 @@
-/Users/zuston/dev/code-library/json-in-action/d1/build/CMakeFiles/edit_cache.dir
-/Users/zuston/dev/code-library/json-in-action/d1/build/CMakeFiles/rebuild_cache.dir
-/Users/zuston/dev/code-library/json-in-action/d1/build/CMakeFiles/zjson_test.dir
-/Users/zuston/dev/code-library/json-in-action/d1/build/CMakeFiles/zjson.dir
