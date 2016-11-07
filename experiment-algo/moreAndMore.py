@@ -1,3 +1,4 @@
+#coding:utf-8
 '''
 问题描述
 某公司要求它的一些员工从事若干个项目。因这些项目相当复杂，项目是分期进行的，但每个项目需要熟悉该项目的人数越多越好。当然对人员有一定的要求。
@@ -23,8 +24,29 @@
 2
 '''
 def moreAndMore():
-    pass
+    n = raw_input()
+    while n!=0 :
+        relationList = []
+        for i in range(int(n)):
+            a,b = raw_input().strip().split()
+            a = int(a)
+            b = int(b)
+            relationList.append([a,b])
 
+
+
+# 求有交集集合的并集
+def unionListMax(relationList,searchNumber=None):
+    for i in range(len(relationList)):
+        for one in i:
+            if searchNumber!=None and searchNumber==one:
+                unionListMax(relationList[i+1:],one)
+
+
+def test():
+    echoList = [[2,4],[5,7],[2,8],[8,5]]
+    unionListMax(echoList)
 
 if __name__ == '__main__':
-    moreAndMore()
+    # moreAndMore()
+    test()
