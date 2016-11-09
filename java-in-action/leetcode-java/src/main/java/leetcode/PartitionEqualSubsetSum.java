@@ -31,6 +31,8 @@ import java.util.Iterator;
  对于属于与不属于的问题，可以演变为0-1背包问题，因为是放呢还是不放，用呢还是不用这两个问题，于是可以用动态规划解决
  c[i,w]=c[i-1,w-v]+v放的时候
  c[i,w]=max(c[i-1,w-v]+v,c[i-1,w])
+
+ ------0-1背包问题------
  */
 public class PartitionEqualSubsetSum {
     public boolean canPartition(int[] nums) {
@@ -94,7 +96,7 @@ public class PartitionEqualSubsetSum {
 
     public static void main(String[] args) {
         PartitionEqualSubsetSum pe = new PartitionEqualSubsetSum();
-        int a [] = {1,6,12,19};
+        int a [] = {1,6,11,19};
         System.out.println(pe.canPartition(a));
     }
 
