@@ -7,51 +7,65 @@ import tool.ORM;
  */
 public class company extends ORM{
     public int id;
-    public String name;
-    public String number;
+    public String cname;
+    public String cnumber;
+    public int ctag;
     public int patent_number;
 
-    public company(int id, String name, String number, int patent_number) {
+    public company(int id, String cname, String cnumber, int ctag, int patent_number) {
         this.id = id;
-        this.name = name;
-        this.number = number;
+        this.cname = cname;
+        this.cnumber = cnumber;
+        this.ctag = ctag;
         this.patent_number = patent_number;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public company(){
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public void setPatent_number(int patent_number) {
-        this.patent_number = patent_number;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getCname() {
+        return cname;
+    }
+
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
+
+    public String getCnumber() {
+        return cnumber;
+    }
+
+    public void setCnumber(String cnumber) {
+        this.cnumber = cnumber;
+    }
+
+    public int getCtag() {
+        return ctag;
+    }
+
+    public void setCtag(int ctag) {
+        this.ctag = ctag;
     }
 
     public int getPatent_number() {
         return patent_number;
     }
 
+    public void setPatent_number(int patent_number) {
+        this.patent_number = patent_number;
+    }
+
     public static void main(String[] args) throws IllegalAccessException {
-        company com = new company(1,"zuston","909080",209);
+        company com = new company(9999,"zuston","909080",1,100);
         com.save();
     }
 }

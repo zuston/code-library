@@ -1,8 +1,10 @@
 package tool;
 
-import java.io.File;
 import java.lang.reflect.Field;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by zuston on 16-11-3.
@@ -12,7 +14,7 @@ abstract public class ORM {
     private void getConn(){
         try {
             System.out.println("初始化连接");
-            String url="jdbc:mysql://localhost:3306/uml?user=root&password=zuston&characterEncoding=utf8";
+            String url="jdbc:mysql://localhost:3306/patent?user=root&password=shacha&characterEncoding=utf8";
             Class.forName("com.mysql.jdbc.Driver") ;
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
