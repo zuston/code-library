@@ -4,13 +4,24 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
+
+
+  <filter>
+    <filter-name>log</filter-name>
+    <filter-class>logFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>log</filter-name>
     <url-pattern>/*</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>hello</servlet-name>
-    <servlet-class>distribute</servlet-class>
-  </servlet>
+  </filter-mapping>
+
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>hello</servlet-name>-->
+    <!--<url-pattern>/fuck</url-pattern>-->
+  <!--</servlet-mapping>-->
+  <!---->
+  <!--<servlet>-->
+    <!--<servlet-name>hello</servlet-name>-->
+    <!--<servlet-class>distribute</servlet-class>-->
+  <!--</servlet>-->
 </web-app>

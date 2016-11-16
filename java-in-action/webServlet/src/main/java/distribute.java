@@ -1,16 +1,23 @@
+import javafx.application.Application;
+import util.PropertyUtil;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Properties;
 
 /**
  * Created by zuston on 16-11-9.
  */
+@WebServlet("/fuck")
 public class distribute extends HttpServlet {
     private String message;
-
     public void init() throws ServletException
     {
         // 执行必需的初始化
@@ -22,29 +29,19 @@ public class distribute extends HttpServlet {
                       HttpServletResponse response)
             throws ServletException, IOException
     {
-        // 设置响应内容类型
         response.setContentType("text/html");
 
-        // 实际的逻辑是在这里
-        PrintWriter out = response.getWriter();
-        for(String value:request.getParameterValues()){
-            System.out.println();
-        }
-        out.println("<h1>" + message + "</h1>");
-        out.println("<h1>" + request.getParameter("name") + "</h1>");
-        out.println("<h1>" + request.getMethod() + "</h1>");
-        out.println("<h2>"+request.getPathInfo()+"</h2>");
-        out.println("<h2>"+request.getAuthType()+"</h2>");
-        out.println(request.getPathInfo());
+
+        System.out.println("url:  "+request.getRequestURI());
+        request.setAttribute("name","zuston");
+        ServletContext application = request.getServletContext();
+        application.setAttribute("age",23);
+        HttpSession session = request.getSession();
+        session.setAttribute("school","shu");
+
+        Properties pop = PropertyUtil.load("dbConfig.properties");
+        request.setAttribute("pwd",pop.getProperty("jdbc.pwd"));
+        request.getRequestDispatcher("/WEB-INF/View/index.jsp").forward(request,response);
     }
 
-    public void service(){
-
-    }
-
-
-    public void destroy()
-    {
-        // 什么也不做
-    }
 }
