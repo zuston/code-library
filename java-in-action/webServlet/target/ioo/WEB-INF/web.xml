@@ -4,13 +4,29 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+   
+    <filter>
+        <filter-name>log</filter-name>
+        <filter-class>logFilter</filter-class>
+        <init-param>
+            <param-name>site</param-name>
+            <param-value>测试站点</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>log</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    
   <servlet-mapping>
     <servlet-name>hello</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
   
   <servlet>
     <servlet-name>hello</servlet-name>
-    <servlet-class>distribute</servlet-class>
+    <servlet-class>distributeServlet</servlet-class>
   </servlet>
 </web-app>
