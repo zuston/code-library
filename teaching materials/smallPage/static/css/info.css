@@ -1,0 +1,12 @@
+.infoTitle{
+    margin: auto;
+    width:150px;
+    font-size: 20px;
+}
+
+.infoPic{
+    width:1000px;
+    height:500px;
+    /*border:1px solid black;*/
+    margin: auto;
+}
